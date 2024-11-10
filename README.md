@@ -1,2 +1,1 @@
-This is my profile page.
-I made some changes here.
+This is my personal website.

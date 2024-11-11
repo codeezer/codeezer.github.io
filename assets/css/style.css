@@ -913,7 +913,7 @@ section .container {
   margin: 10px 0 8px 68px;
 }
 
-.contact .info-box p {
+.contact .info-box a {
   padding: 0;
   color: #fff;
   line-height: 24px;

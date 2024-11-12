@@ -476,24 +476,24 @@ section .container {
 }
 
 /*--------------------------------------------------------------
-# Research Interests
+# Interests
 --------------------------------------------------------------*/
-/* .research-interests .icon-box {
+.interests .icon-box {
   display: flex;
   align-items: center;
   padding: 20px;
   background: #09203a;
   transition: ease-in-out 0.3s;
-} */
+}
 
 
-.research-interests .icon-box i {
+.interests .icon-box i {
   font-size: 32px;
   padding-right: 10px;
   line-height: 1;
 }
 
-.research-interests .icon-box h3 {
+.interests .icon-box h3 {
   font-weight: 700;
   margin: 0;
   padding: 0;
@@ -502,7 +502,7 @@ section .container {
   color: #fff;
 }
 
-.research-interests .icon-box:hover {
+.interests .icon-box:hover {
   background: #042b56eb;
 }
 

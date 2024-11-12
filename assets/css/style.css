@@ -478,13 +478,13 @@ section .container {
 /*--------------------------------------------------------------
 # Interests
 --------------------------------------------------------------*/
-.research-interests .icon-box {
+/* .research-interests .icon-box {
   display: flex;
   align-items: center;
   padding: 20px;
   background: #09203a;
   transition: ease-in-out 0.3s;
-}
+} */
 
 
 .research-interests .icon-box i {

@@ -146,6 +146,24 @@
   // Initiate venobox (lightbox feature used in portofilo)
   $(document).ready(function() {
     $('.venobox').venobox();
+    // Load Blog Posts from JSON
+  $.getJSON("assets/json/blog-posts.json", function(data) {
+    var blogContainer = $("#blog-posts-container");
+
+    $.each(data, function(index, post) {
+      var blogItem = `
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="blog-item">
+            <img src="${post.image}" class="img-fluid" alt="">
+            <h4>${post.title}</h4>
+            <p>${post.summary}</p>
+            <a href="${post.link}" class="read-more">Read More</a>
+          </div>
+        </div>
+      `;
+      blogContainer.append(blogItem);
+    });
+  });
   });
 
 })(jQuery);

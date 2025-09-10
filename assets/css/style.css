@@ -1104,3 +1104,293 @@ section .container {
     transform: translateX(-50%);
   }
 }
+
+/*--------------------------------------------------------------
+# Adventures Section
+--------------------------------------------------------------*/
+.adventure-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.adventure-icon {
+  font-size: 32px;
+  color: #12d640;
+  background: rgba(18, 214, 64, 0.1);
+  padding: 15px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Chess Section Styles */
+.chess-stats {
+  margin: 25px 0;
+}
+
+.stat-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 15px;
+  border: 1px solid rgba(18, 214, 64, 0.2);
+  transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+  background: rgba(18, 214, 64, 0.1);
+  transform: translateY(-2px);
+}
+
+.stat-box i {
+  font-size: 24px;
+  color: #12d640;
+  margin-bottom: 10px;
+}
+
+.stat-box h5 {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.stat-box p {
+  color: #dee2e6;
+  margin: 0;
+  font-size: 14px;
+}
+
+.chess-links {
+  margin-top: 25px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.chess-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 20px;
+  background: rgba(18, 214, 64, 0.1);
+  color: #12d640;
+  text-decoration: none;
+  border-radius: 25px;
+  border: 1px solid rgba(18, 214, 64, 0.3);
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.chess-link:hover {
+  background: #12d640;
+  color: #09203a;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.chess-link i {
+  margin-right: 8px;
+}
+
+/* 14ers Section Styles */
+.fourteener-grid {
+  margin: 25px 0;
+}
+
+.peak-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid rgba(18, 214, 64, 0.2);
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.peak-card:hover {
+  background: rgba(18, 214, 64, 0.08);
+  transform: translateY(-3px);
+}
+
+.peak-card h5 {
+  color: #12d640;
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.peak-card h5 i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.peak-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.peak-list li {
+  color: #fff;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.peak-list li:last-child {
+  border-bottom: none;
+}
+
+.peak-list li:before {
+  content: "▲";
+  position: absolute;
+  left: 0;
+  color: #12d640;
+  font-size: 12px;
+}
+
+.hiking-philosophy {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.hiking-philosophy blockquote {
+  background: rgba(18, 214, 64, 0.05);
+  border-left: 4px solid #12d640;
+  padding: 25px;
+  margin: 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #dee2e6;
+  position: relative;
+}
+
+.hiking-philosophy blockquote i {
+  color: #12d640;
+  font-size: 18px;
+}
+
+.hiking-philosophy blockquote .fa-quote-left {
+  margin-right: 10px;
+}
+
+.hiking-philosophy blockquote .fa-quote-right {
+  margin-left: 10px;
+}
+
+/* Photo Gallery Styles */
+.photo-gallery {
+  margin: 25px 0;
+}
+
+.photo-placeholder {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(18, 214, 64, 0.3);
+  border-radius: 10px;
+  padding: 40px 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-placeholder:hover {
+  background: rgba(18, 214, 64, 0.08);
+  border-color: rgba(18, 214, 64, 0.5);
+  transform: translateY(-2px);
+}
+
+.photo-placeholder i {
+  font-size: 36px;
+  color: #12d640;
+  margin-bottom: 15px;
+}
+
+.photo-placeholder p {
+  color: #fff;
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.gallery-note {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.gallery-note p {
+  color: #dee2e6;
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* Responsive Design for Adventures */
+@media (max-width: 768px) {
+  .adventure-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .adventure-header h4 {
+    margin-left: 0 !important;
+    margin-top: 10px;
+  }
+  
+  .chess-links {
+    justify-content: center;
+  }
+  
+  .chess-link {
+    flex: 1;
+    min-width: 200px;
+    justify-content: center;
+  }
+  
+  .stat-box {
+    margin-bottom: 20px;
+  }
+  
+  .peak-card {
+    margin-bottom: 20px;
+  }
+  
+  .photo-placeholder {
+    min-height: 120px;
+    padding: 30px 15px;
+  }
+  
+  .photo-placeholder i {
+    font-size: 28px;
+  }
+  
+  .hiking-philosophy blockquote {
+    padding: 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .chess-stats .col-md-4 {
+    margin-bottom: 15px;
+  }
+  
+  .fourteener-grid .col-md-6 {
+    margin-bottom: 20px;
+  }
+  
+  .photo-gallery .col-md-4 {
+    margin-bottom: 15px;
+  }
+}

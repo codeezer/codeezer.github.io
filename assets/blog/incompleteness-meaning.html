@@ -9,6 +9,21 @@
   <meta name="description" content="A reflection on Gödel’s incompleteness theorem, consciousness, and the human search for meaning.">
   <meta property="og:title" content="Incompleteness, Meaning — Ramesh Neupane">
   <meta property="og:description" content="A reflection on Gödel’s incompleteness theorem, consciousness, and the human search for meaning.">
+  <style>
+    /* Minimal inline fallbacks to ensure readability if external CSS fails to load */
+    /* Force readable overall page colors as a strong fallback */
+      html, body { background: #ffffff !important; color: #111 !important; }
+    .article-content { background: #ffffff !important; color: #111 !important; }
+    .article-content p { color: #111 !important; }
+    .article-hero h1 { color: #0a0a0a !important; }
+    .article-meta { color: #444 !important; }
+    .article-actions a { color: #0a8f3a !important; }
+    a { color: #0a8f3a !important; }
+      /* Hide background pseudo-element used by the homepage template that can cover content */
+      body::before { display: none !important; }
+      /* Ensure article content sits above any overlays */
+      .article-content { position: relative !important; z-index: 9999 !important; }
+  </style>
 </head>
 <body>
   <div class="container">

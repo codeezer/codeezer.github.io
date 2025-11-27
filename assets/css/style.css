@@ -1394,3 +1394,116 @@ section .container {
     margin-bottom: 15px;
   }
 }
+
+/* ------------------------------------------------------------------
+   Blog / Article Styles
+   ------------------------------------------------------------------ */
+.blog-item {
+  background: rgba(9, 32, 58, 0.6);
+  border: 1px solid rgba(18,214,64,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.blog-item-media img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-item-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.blog-title {
+  font-size: 18px;
+  margin: 0;
+}
+
+.blog-title a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.blog-excerpt {
+  color: #dfefee;
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+.read-more {
+  align-self: flex-start;
+  color: #12d640;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.read-more:hover { text-decoration: underline; }
+
+/* Article page */
+.article-hero {
+  padding: 80px 20px;
+  background: linear-gradient(180deg, rgba(18,214,64,0.06), rgba(9,32,58,0.6));
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.article-hero h1 {
+  font-size: 34px;
+  margin: 0 0 8px 0;
+  color: #fff;
+}
+
+.article-meta {
+  color: #cfeed1;
+  font-size: 14px;
+}
+
+.article-content {
+  max-width: 840px;
+  margin: 0 auto 80px auto;
+  padding: 30px;
+  background: rgba(0,0,0,0.25);
+  border-radius: 10px;
+  line-height: 1.8;
+}
+
+.article-content p { color: #e8f7ee; }
+
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 6px;
+}
+
+.article-actions {
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  margin-top:18px;
+}
+
+.article-actions a {
+  background: rgba(18,214,64,0.12);
+  color: #12d640;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .blog-item-media img { height: 150px; }
+  .article-hero { padding: 40px 20px; }
+  .article-hero h1 { font-size: 26px; }
+  .article-content { padding: 18px; }
+}

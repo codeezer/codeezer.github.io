@@ -147,23 +147,32 @@
   $(document).ready(function() {
     $('.venobox').venobox();
     // Load Blog Posts from JSON
-  $.getJSON("assets/json/blog-posts.json", function(data) {
-    var blogContainer = $("#blog-posts-container");
+    $.getJSON("assets/json/blog-posts.json", function(data) {
+      var blogContainer = $("#blog-posts-container");
 
-    $.each(data, function(index, post) {
-      var blogItem = `
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="blog-item">
-            <img src="${post.image}" class="img-fluid" alt="">
-            <h4>${post.title}</h4>
-            <p>${post.summary}</p>
-            <a href="${post.link}" class="read-more">Read More</a>
+      $.each(data, function(index, post) {
+        var imgHtml = '';
+        if (post.image && post.image.trim().length > 0) {
+          imgHtml = `<div class="blog-item-media"><img src="${post.image}" class="img-fluid" alt="${post.title}"></div>`;
+        }
+
+        var blogItem = `
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <article class="blog-item">
+              ${imgHtml}
+              <div class="blog-item-body">
+                <h3 class="blog-title"><a href="${post.link}">${post.title}</a></h3>
+                <p class="blog-excerpt">${post.summary}</p>
+                <a href="${post.link}" class="read-more">Read More &rarr;</a>
+              </div>
+            </article>
           </div>
-        </div>
-      `;
-      blogContainer.append(blogItem);
+        `;
+        blogContainer.append(blogItem);
+      });
+    }).fail(function() {
+      console.error('Could not load blog posts JSON.');
     });
-  });
   });
 
 })(jQuery);

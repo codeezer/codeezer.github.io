@@ -1,8 +1,14 @@
 [
     {
         "title": "Incompleteness, Meaning, and What It Says About Us",
-        "summary": "Gödel’s incompleteness theorem showed that even mathematics, the most precise tool we possess, carries within it inevitable limitations. Many saw this as a frustration, but it might be one of the most beautiful features of the universe. This article reflects on what incompleteness says about the nature of human thought, the limits of reasoning systems, the mystery of consciousness, and the search for meaning in a universe that owes us no answers.",
+        "summary": "Gödel’s incompleteness theorem showed that even mathematics, the most precise tool we possess, carries within it inevitable limitations. This article reflects on what incompleteness says about the nature of human thought and the search for meaning.",
         "image": "",
         "link": "assets/blog/incompleteness-meaning.html"
+    },
+    {
+        "title": "AI Utopia: Dreams, Risks, and Design",
+        "summary": "A short meditation on what an AI 'utopia' might look like, the social and ethical trade-offs involved, and practical design choices that could nudge systems toward human flourishing.",
+        "image": "",
+        "link": "assets/blog/ai-utopia.html"
     }
 ]

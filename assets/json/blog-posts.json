@@ -10,5 +10,11 @@
         "summary": "A short meditation on what an AI 'utopia' might look like, the social and ethical trade-offs involved, and practical design choices that could nudge systems toward human flourishing.",
         "image": "",
         "link": "assets/blog/ai-utopia.html"
+    },
+    {
+        "title": "The Probabilistic Trap: Why Billions of Neurons Are Harder to Understand Than Billions of Transistors",
+        "summary": "An exploration of why neural networks are fundamentally harder to understand and verify than CPUs, and why mechanistic interpretability is essential for AI safety.",
+        "image": "",
+        "link": "assets/blog/probabilistic-trap.html"
     }
 ]

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Probabilistic Trap: Why Billions of Neurons Are Harder to Understand Than Billions of Transistors — Ramesh Neupane</title>
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <meta name="description" content="An exploration of why neural networks are fundamentally harder to understand and verify than CPUs, and why mechanistic interpretability is essential for AI safety.">
+    <meta property="og:title" content="The Probabilistic Trap — Ramesh Neupane">
+    <meta property="og:description" content="An exploration of why neural networks are fundamentally harder to understand and verify than CPUs, and why mechanistic interpretability is essential for AI safety.">
+    <style>
+      /* Force readable overall page colors as a strong fallback */
+      html, body { background: #ffffff !important; color: #111 !important; }
+      .article-content { background: #ffffff !important; color: #111 !important; }
+      .article-content p { color: #111 !important; }
+      .article-hero h1 { color: #0a0a0a !important; }
+      .article-meta { color: #444 !important; }
+      .article-actions a { color: #0a8f3a !important; }
+      a { color: #0a8f3a !important; }
+      /* Hide background pseudo-element used by the homepage template that can cover content */
+      body::before { display: none !important; }
+      /* Ensure article content sits above any overlays */
+      .article-content { position: relative !important; z-index: 9999 !important; }
+      /* Article-specific typography */
+      .article-content h2 { color: #0a0a0a !important; font-weight: 700; margin-top: 28px; margin-bottom: 14px; font-size: 22px; }
+      .article-content h3 { color: #0a0a0a !important; font-weight: 600; margin-top: 20px; margin-bottom: 10px; font-size: 18px; }
+      .article-content ul, .article-content ol { color: #111 !important; }
+      .article-content li { color: #111 !important; }
+      .article-content code { background: #f5f5f5 !important; color: #222 !important; padding: 2px 4px; border-radius: 3px; }
+      .article-content blockquote { border-left: 4px solid #0a8f3a; padding-left: 16px; margin-left: 0; color: #333 !important; font-style: italic; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p style="margin-top:18px;"><a href="/index.html">← Back to home</a></p>
+    </div>
+
+    <header class="article-hero">
+      <h1>The Probabilistic Trap: Why Billions of Neurons Are Harder to Understand Than Billions of Transistors</h1>
+      <div class="article-meta">Nov 28, 2025 · Thought</div>
+    </header>
+
+    <main class="article-content" role="main">
+      <h2>Introduction: The "Black Box" Dilemma</h2>
+
+      <p>
+        We are living through a gold rush of Artificial Intelligence. Everyone is intoxicated by the outputs—the magical text, code, and images that large language models (LLMs) effortlessly generate. Yet beneath this utility lies a haunting truth: we treat these models as Black Boxes.
+      </p>
+
+      <p>We feed in an input.<br>
+      We receive an output.<br>
+      But what happens in the middle?</p>
+
+      <p>
+        For years, the prevailing view in machine learning was that we didn't need to know. As long as the loss function went down and the accuracy went up, the internal mechanics were irrelevant. But as AI systems become more agentic, more autonomous, and more deeply integrated into critical infrastructure, "it just works" is no longer an acceptable safety guarantee.
+      </p>
+
+      <p>To deploy AI with confidence, we need to understand how the model thinks, not just what it says.</p>
+
+      <h2>The Immediate Motivation: Safety and Control</h2>
+
+      <p>
+        This is what motivates the emerging field of mechanistic interpretability. The goal is simple: turn the Black Box into a glass box.
+      </p>
+
+      <p>
+        Research like the ROME paper (Rank-One Model Editing) has shown that some factual associations—such as "The Eiffel Tower is in Paris"—are stored in localized subspaces of specific layers. By applying a carefully designed rank-one update, researchers can mathematically "edit" a fact inside the model without retraining it.
+      </p>
+
+      <p>
+        Similarly, the discovery of Induction Heads revealed that transformers develop identifiable internal circuits for behaviors like pattern copying and in-context learning.
+      </p>
+
+      <p>
+        These breakthroughs are promising. They represent the first steps toward true understanding.
+      </p>
+
+      <p>But a deeper question remains:</p>
+
+      <p><strong>Why is this problem so hard—and why haven't we solved it yet?</strong></p>
+
+      <h2>The Core Argument: It's Not Just About Scale</h2>
+
+      <p>
+        A common misconception is that LLMs are difficult to interpret simply because they are enormous. People say things like, "GPT-4 has over a trillion parameters—of course no one can understand it!"
+      </p>
+
+      <p>But this "scale argument" is incomplete.</p>
+
+      <p>
+        Consider the modern computer processor. A high-end CPU contains billions of transistors. In raw component count, a CPU rivals smaller LLMs. Both systems rely on billions of atomic components to make decisions.
+      </p>
+
+      <p>
+        The CPU: billions of transistors<br>
+        The LLM: billions of parameters
+      </p>
+
+      <p>
+        If scale alone made systems uninterpretable, computer engineers couldn't design, debug, or verify chips. Yet CPUs run flawlessly for years without a single calculation error. We do not view a CPU as a Black Box—we view it as a masterpiece of engineering.
+      </p>
+
+      <p>So, what makes these two billion-component systems so fundamentally different?</p>
+
+      <h2>The Great Divergence: Logic Gates vs. Probability Distributions</h2>
+
+      <p>The answer lies in the nature of the atomic unit.</p>
+
+      <h3>1. The Transistor: The Deterministic Switch</h3>
+
+      <p>
+        A CPU is a purely deterministic machine built on Boolean logic. Each transistor behaves like a crisp binary gate:
+      </p>
+
+      <p>
+        <code>Vin &gt; Vthreshold → Output = 1</code><br>
+        <code>Vin &lt; Vthreshold → Output = 0</code>
+      </p>
+
+      <p>
+        Because its behavior is rigid and discrete, engineers can use formal verification and SAT solvers to mathematically prove correctness. They can guarantee—down to the bit—that if input A is provided, output B will occur. A CPU can be fully understood, fully modeled, and fully verified.
+      </p>
+
+      <p>A processor is a designed artifact. Every connection is intentional.</p>
+
+      <h3>2. The Neuron: The Probabilistic Filter</h3>
+
+      <p>An LLM neuron behaves very differently:</p>
+
+      <p><code>y = σ(∑ᵢ wᵢxᵢ + b)</code></p>
+
+      <p>
+        Its output is a floating-point number: a continuous value representing an activation strength. When aggregated across billions of such units, these activations form a probability distribution over possible next tokens.
+      </p>
+
+      <p>
+        The neuron does not represent "truth."<br>
+        It represents likelihood—a statistical correlation extracted from the training data.
+      </p>
+
+      <p>
+        And unlike a CPU, an LLM is a trained artifact. The connections were not designed by a human—they were shaped by the optimizer.
+      </p>
+
+      <p>This difference changes everything.</p>
+
+      <h2>Why This Matters for AI Safety</h2>
+
+      <p>This is why we cannot simply "debug" an LLM.</p>
+
+      <p>
+        <strong>With a CPU:</strong> We can prove correctness with formal methods. Engineering is top-down.<br>
+        <strong>With an LLM:</strong> The internal logic is learned bottom-up from data. It is not written by humans; it is discovered by gradient descent.
+      </p>
+
+      <p>
+        Small neural networks can, in theory, be verified formally. But modern LLMs are far too large, tangled, and distributed for existing methods. Their internal representations are not symbolic—they are high-dimensional floating-point spaces.
+      </p>
+
+      <p>We cannot write a formal proof that says:</p>
+
+      <ul>
+        <li>This model will never hallucinate.</li>
+        <li>This model will never output a racial slur.</li>
+        <li>This model will never be jailbroken.</li>
+      </ul>
+
+      <p>At best, we can say such behavior is unlikely.</p>
+
+      <p>
+        <strong>Probability is not assurance.<br>
+        And safety requires assurance.</strong>
+      </p>
+
+      <p>
+        This is where mechanistic interpretability becomes essential. Since we cannot deduce the system's behavior from first principles, we must reverse-engineer it. We must treat the LLM like a biological specimen: probe it, map its circuits, discover its internal algorithms—just as the ROME and Induction Head studies attempt to do.
+      </p>
+
+      <h2>Conclusion: From Engineering to Digital Neuroscience</h2>
+
+      <p>
+        We are transitioning from the era of Engineering, where every connection in a system was known, to the era of Digital Neuroscience, where we study systems whose internal connections evolved rather than were designed.
+      </p>
+
+      <p>
+        Mechanistic interpretability is not optional.<br>
+        It is not merely a scientific curiosity.
+      </p>
+
+      <p>
+        It is the necessary bridge between the probabilistic chaos of neural networks and the rigorous safety standards demanded by the critical systems they increasingly control.
+      </p>
+
+      <p>
+        <strong>We cannot deploy systems we do not understand.</strong><br>
+        And until we illuminate the inside of these Black Boxes, true AI safety will remain out of reach.
+      </p>
+
+      <div class="article-actions">
+        <a href="mailto:?subject=The%20Probabilistic%20Trap&body=I thought you might like this article: ">Share</a>
+        <a href="/index.html#thoughts">More thoughts</a>
+      </div>
+    </main>
+
+  </body>
+</html>
